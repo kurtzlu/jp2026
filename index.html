@@ -7,210 +7,249 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
-        body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8f9fa; }
-        .timeline-line::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: #e5e7eb; }
-        .gradient-header { background: linear-gradient(135deg, #a52a2a 0%, #7c1f1f 100%); }
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700;900&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #f7f7f7; color: #333; }
+        .card-shadow { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+        .nav-item { flex: 1; text-align: center; padding: 12px 0; font-size: 12px; color: #999; border-bottom: 2px solid transparent; }
+        .nav-item.active { background-color: #fff; color: #a52a2a; border-bottom: 3px solid #a52a2a; font-weight: 900; }
+        .day-header { background: linear-gradient(to right, #a52a2a, #7c1f1f); }
+        .timeline-dot { position: relative; }
+        .timeline-dot::before { content: ''; position: absolute; left: 16px; top: 0; bottom: 0; width: 1px; background: #e5e7eb; z-index: 0; }
     </style>
 </head>
-<body class="pb-24">
+<body class="max-w-2xl mx-auto pb-24">
 
-    <header class="gradient-header text-white p-6 shadow-lg sticky top-0 z-50">
-        <div class="max-w-md mx-auto flex justify-between items-center">
+    <header class="bg-[#a52a2a] text-white p-6 sticky top-0 z-50">
+        <div class="flex justify-between items-end">
             <div>
-                <h1 class="text-2xl font-black italic tracking-tighter">MONOFIKA <span class="text-yellow-400">2026</span></h1>
-                <p class="text-xs opacity-90 mt-1">7月8日 - 7月13日 | 20人家族自駕大團</p>
+                <h1 class="text-2xl font-black italic">MONOFIKA 2026</h1>
+                <p class="text-xs opacity-80 mt-1 underline">7月8日 - 7月13日 | 20人家族自駕之旅</p>
             </div>
-            <div class="text-right">
-                <p class="text-[10px] font-bold bg-white/20 px-2 py-1 rounded">20人 (14大6小)</p>
+            <div class="text-right text-[10px] font-bold opacity-60">
+                Ver 2.0.4
             </div>
         </div>
     </header>
 
-    <main class="max-w-md mx-auto p-4 space-y-6">
+    <nav class="bg-gray-100 flex shadow-sm sticky top-[80px] z-40">
+        <div class="nav-item active"><i class="fa-solid fa-calendar-days block text-lg mb-1"></i>行程</div>
+        <div class="nav-item"><i class="fa-solid fa-car block text-lg mb-1"></i>交通</div>
+        <div class="nav-item"><i class="fa-solid fa-hotel block text-lg mb-1"></i>住宿</div>
+        <div class="nav-item"><i class="fa-solid fa-circle-info block text-lg mb-1"></i>資訊</div>
+    </nav>
 
-        <section class="bg-white rounded-3xl p-5 shadow-sm border border-gray-100">
-            <h3 class="font-bold text-gray-800 mb-4 flex items-center text-sm"><i class="fa-solid fa-car-side text-[#a52a2a] mr-2"></i> 5台 MPV 車隊長名單</h3>
-            <div class="grid grid-cols-2 gap-2 text-[13px] font-bold">
-                <div class="bg-gray-50 p-3 rounded-2xl text-center border border-gray-100">呂敏源 隊</div>
-                <div class="bg-gray-50 p-3 rounded-2xl text-center border border-gray-100">王文達 隊</div>
-                <div class="bg-gray-50 p-3 rounded-2xl text-center border border-gray-100">郭根宏 隊</div>
-                <div class="bg-gray-50 p-3 rounded-2xl text-center border border-gray-100">呂宗翰 隊</div>
-                <div class="col-span-2 bg-red-50 p-3 rounded-2xl text-center border border-red-100 text-red-800 italic text-sm">許景閎 隊 (4大)</div>
+    <main class="p-4 space-y-8 mt-2">
+
+        <section class="grid grid-cols-1 gap-4">
+            <div class="bg-white rounded-2xl p-5 card-shadow border-t-4 border-[#a52a2a]">
+                <h3 class="text-xs font-black text-gray-400 mb-3 uppercase tracking-widest">✈️ 航班訊息</h3>
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-[10px] font-bold text-red-700">7/8 (週三) 去程</p>
+                        <p class="text-xl font-black">07:30 <span class="text-xs font-normal text-gray-400">TPE</span></p>
+                    </div>
+                    <i class="fa-solid fa-plane text-gray-200"></i>
+                    <div class="text-right">
+                        <p class="text-[10px] font-bold text-red-700">10:45 抵達熊本</p>
+                        <p class="text-xl font-black">KMJ <span class="text-xs font-normal text-gray-400">熊本</span></p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="grid grid-cols-2 gap-4">
-            <div class="bg-white p-4 rounded-3xl border border-gray-100 shadow-sm text-center">
-                <p class="text-[10px] text-gray-400 font-bold uppercase">7/8 去程</p>
-                <p class="text-sm font-black mt-1">07:30 TPE</p>
-                <p class="text-[10px] text-red-600 font-bold">➡️ 10:45 KMJ (熊本)</p>
+        <section class="space-y-10">
+
+            <div class="space-y-4">
+                <div class="day-header text-white px-5 py-3 rounded-2xl flex justify-between items-center shadow-lg">
+                    <span class="text-lg font-black italic">Day 1 | 熊本進擊</span>
+                    <span class="text-xs font-bold opacity-80">2026/07/08 (三)</span>
+                </div>
+                
+                <div class="bg-white rounded-3xl p-6 card-shadow space-y-8 timeline-dot">
+                    <div class="relative flex items-start space-x-6">
+                        <div class="text-[10px] font-black text-red-700 pt-1 bg-white z-10 w-8">10:45</div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-red-700 mt-1.5 z-10 ring-4 ring-red-100"></div>
+                        <div class="flex-1">
+                            <p class="font-black text-sm text-gray-800">抵達熊本空港 (KMJ)</p>
+                            <p class="text-[11px] text-gray-500 mt-1 leading-relaxed">20人集合後，由五位車隊長前往租車櫃台辦理 5 台 MPV 手續。預留 90 分鐘緩衝時間。</p>
+                        </div>
+                    </div>
+
+                    <div class="relative flex items-start space-x-6">
+                        <div class="text-[10px] font-bold text-gray-400 pt-1 bg-white z-10 w-8">13:30</div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-gray-300 mt-1.5 z-10 ring-4 ring-gray-50"></div>
+                        <div class="flex-1">
+                            <p class="font-black text-sm text-gray-800 italic">The Blossom Kumamoto</p>
+                            <p class="text-[11px] text-red-700 font-bold mt-0.5 underline">飯店 Check-in / 放行李</p>
+                            <p class="text-[10px] text-gray-400 mt-1 leading-relaxed font-medium">地址：熊本市西区春日3-15-26 (熊本駅直結)</p>
+                        </div>
+                    </div>
+
+                    <div class="relative flex items-start space-x-6">
+                        <div class="text-[10px] font-bold text-gray-400 pt-1 bg-white z-10 w-8">15:30</div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-gray-300 mt-1.5 z-10 ring-4 ring-gray-50"></div>
+                        <div class="flex-1">
+                            <p class="font-black text-sm text-gray-800">熊本城 / 櫻之馬場 [停留 3hr]</p>
+                            <p class="text-[11px] text-gray-500 mt-1 leading-relaxed">自駕前往二之丸停車場。參觀修復後的熊本城天守閣，隨後在城彩苑享用海膽可樂餅等小吃。</p>
+                            <a href="#" class="mt-3 inline-block bg-gray-100 text-gray-600 px-4 py-1.5 rounded-full text-[10px] font-bold"><i class="fa-solid fa-location-dot mr-1 text-red-700"></i>Google 地圖導航</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="bg-white p-4 rounded-3xl border border-gray-100 shadow-sm text-center">
-                <p class="text-[10px] text-gray-400 font-bold uppercase">7/13 回程</p>
-                <p class="text-sm font-black mt-1">14:15 FUK</p>
-                <p class="text-[10px] text-red-600 font-bold">➡️ 15:45 TPE (台北)</p>
+
+            <div class="space-y-4">
+                <div class="day-header text-white px-5 py-3 rounded-2xl flex justify-between items-center shadow-lg opacity-90">
+                    <span class="text-lg font-black italic font-bold">Day 2 | 跨越阿蘇</span>
+                    <span class="text-xs font-bold opacity-80">2026/07/09 (四)</span>
+                </div>
+                <div class="bg-white rounded-3xl p-6 card-shadow space-y-8 timeline-dot">
+                    <div class="relative flex items-start space-x-6">
+                        <div class="text-[10px] font-black text-red-700 pt-1 bg-white z-10 w-8">09:30</div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-red-700 mt-1.5 z-10 ring-4 ring-red-100"></div>
+                        <div class="flex-1">
+                            <p class="font-black text-sm text-gray-800 italic">自駕大移動 [車程 2.5hr]</p>
+                            <p class="text-[11px] text-gray-500 mt-1 leading-relaxed">走阿蘇景觀公路前往別府。中途建議於「大觀峰」稍作休息，俯瞰阿蘇五岳美景。</p>
+                        </div>
+                    </div>
+                    <div class="relative flex items-start space-x-6">
+                        <div class="text-[10px] font-bold text-gray-400 pt-1 bg-white z-10 w-8">16:00</div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-gray-300 mt-1.5 z-10 ring-4 ring-gray-50"></div>
+                        <div class="flex-1 text-blue-800">
+                            <p class="font-black text-sm">入住 Amanek Beppu Yula-re</p>
+                            <p class="text-[11px] font-bold mt-1 leading-relaxed">別府市駅前本町6-35。強烈建議 17:00 前往頂樓無邊際足湯欣賞別府灣夕陽。</p>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <div class="space-y-4">
+                <div class="day-header text-white px-5 py-3 rounded-2xl flex justify-between items-center shadow-lg">
+                    <span class="text-lg font-black italic">Day 3 | 野生探險</span>
+                    <span class="text-xs font-bold opacity-80">2026/07/10 (五)</span>
+                </div>
+                <div class="bg-white rounded-3xl p-6 card-shadow space-y-8 timeline-dot">
+                    <div class="relative flex items-start space-x-6">
+                        <div class="text-[10px] font-black text-red-700 pt-1 bg-white z-10 w-8">09:30</div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-red-700 mt-1.5 z-10 ring-4 ring-red-100"></div>
+                        <div class="flex-1">
+                            <p class="font-black text-sm text-gray-800 underline italic">九州自然野生動物園 [停留 4hr]</p>
+                            <p class="text-[11px] text-gray-500 mt-1 leading-relaxed font-medium">自駕優勢：5台車可依序進入動物觀察區。近距離觀看獅子、大象，小孩絕對瘋狂。</p>
+                        </div>
+                    </div>
+                    <div class="relative flex items-start space-x-6">
+                        <div class="text-[10px] font-bold text-gray-400 pt-1 bg-white z-10 w-8">15:00</div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-gray-300 mt-1.5 z-10 ring-4 ring-gray-50"></div>
+                        <div class="flex-1">
+                            <p class="font-black text-sm text-gray-800">別府海地獄 / 血池地獄</p>
+                            <p class="text-[11px] text-gray-500 mt-1">欣賞蒂芬妮藍的泉水，享用地獄蒸燒布丁。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="day-header text-white px-5 py-3 rounded-2xl flex justify-between items-center shadow-lg">
+                    <span class="text-lg font-black italic">Day 4 | 晨霧漫步</span>
+                    <span class="text-xs font-bold opacity-80">2026/07/11 (六)</span>
+                </div>
+                <div class="bg-white rounded-3xl p-6 card-shadow space-y-8 timeline-dot">
+                    <div class="relative flex items-start space-x-6">
+                        <div class="text-[10px] font-black text-red-700 pt-1 bg-white z-10 w-8">10:30</div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-red-700 mt-1.5 z-10 ring-4 ring-red-100"></div>
+                        <div class="flex-1">
+                            <p class="font-black text-sm text-gray-800">由布院散策 [停留 5hr]</p>
+                            <p class="text-[11px] text-gray-500 mt-1 leading-relaxed">金鱗湖、湯之坪街道。20人大團體建議分組覓食，推薦釜飯心、Snoopy 茶屋。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="day-header text-white px-5 py-3 rounded-2xl flex justify-between items-center shadow-lg">
+                    <span class="text-lg font-black italic">Day 5 | 鋼彈覺醒</span>
+                    <span class="text-xs font-bold opacity-80">2026/07/12 (日)</span>
+                </div>
+                <div class="bg-white rounded-3xl p-6 card-shadow space-y-8 timeline-dot">
+                    <div class="relative flex items-start space-x-6">
+                        <div class="text-[10px] font-black text-red-700 pt-1 bg-white z-10 w-8">13:00</div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-red-700 mt-1.5 z-10 ring-4 ring-red-100"></div>
+                        <div class="flex-1">
+                            <p class="font-black text-sm text-gray-800">LaLaport 福岡 / 實物大鋼彈</p>
+                            <p class="text-[11px] text-gray-500 mt-1 leading-relaxed">大型百貨好停車。最後衝刺購物與鋼彈大合照。20人可分組採買藥妝伴手禮。</p>
+                        </div>
+                    </div>
+                    <div class="relative flex items-start space-x-6">
+                        <div class="text-[10px] font-bold text-gray-400 pt-1 bg-white z-10 w-8">18:00</div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-gray-300 mt-1.5 z-10 ring-4 ring-gray-50"></div>
+                        <div class="flex-1">
+                            <p class="font-black text-sm text-orange-700 underline">博多車站飯店 (住宿建議選項)</p>
+                            <p class="text-[11px] text-gray-500 mt-1 font-medium">建議住車站周邊連鎖飯店，方便隔天一早還車及前往機場。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="day-header text-white px-5 py-3 rounded-2xl flex justify-between items-center shadow-lg">
+                    <span class="text-lg font-black italic">Day 6 | 歸途</span>
+                    <span class="text-xs font-bold opacity-80">2026/07/13 (一)</span>
+                </div>
+                <div class="bg-white rounded-3xl p-6 card-shadow space-y-8 timeline-dot">
+                    <div class="relative flex items-start space-x-6">
+                        <div class="text-[10px] font-black text-red-600 pt-1 bg-white z-10 w-8">11:30</div>
+                        <div class="w-3 h-3 rounded-full bg-red-600 mt-1.5 z-10 border-4 border-white shadow-sm ring-2 ring-red-600"></div>
+                        <div class="flex-1">
+                            <p class="font-black text-sm text-red-600 italic">車隊集體還車 [Deadline]</p>
+                            <p class="text-[11px] text-gray-500 mt-1 leading-relaxed">5台車務必滿油還車並結算 ETC。隨後搭乘接駁車往福岡機場 (FUK)。</p>
+                        </div>
+                    </div>
+                    <div class="relative flex items-start space-x-6">
+                        <div class="text-[10px] font-bold text-gray-400 pt-1 bg-white z-10 w-8">14:15</div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-gray-800 mt-1.5 z-10"></div>
+                        <div class="flex-1">
+                            <p class="font-black text-sm text-gray-800">班機返台 (FUK-TPE)</p>
+                            <p class="text-[11px] text-gray-500 mt-1 leading-relaxed">辦理登機，結束20人豪華九州家族之旅。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
-        <section class="space-y-3">
-            <h3 class="font-bold text-gray-800 ml-1 text-sm uppercase tracking-widest">🏨 住宿安排</h3>
-            <div class="bg-white p-4 rounded-2xl shadow-sm border-l-4 border-green-500 flex justify-between items-center">
-                <div>
-                    <span class="text-[9px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-bold uppercase">7/8 (1晚)</span>
-                    <h4 class="font-bold text-gray-800 text-sm mt-1">The Blossom Kumamoto</h4>
+        <section class="space-y-4">
+            <h3 class="text-xs font-black text-gray-400 uppercase tracking-widest ml-2 italic">⚠️ 實用旅遊資訊</h3>
+            <div class="grid grid-cols-2 gap-3">
+                <div class="bg-white p-5 rounded-2xl text-center card-shadow">
+                    <i class="fa-solid fa-thermometer-half text-red-500 text-xl mb-2"></i>
+                    <p class="text-[10px] text-gray-400">福岡氣溫</p>
+                    <p class="text-sm font-black italic">26°C - 33°C</p>
                 </div>
-                <i class="fa-solid fa-check-circle text-green-500"></i>
-            </div>
-            <div class="bg-white p-4 rounded-2xl shadow-sm border-l-4 border-green-500 flex justify-between items-center">
-                <div>
-                    <span class="text-[9px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-bold uppercase">7/9-7/11 (3晚)</span>
-                    <h4 class="font-bold text-gray-800 text-sm mt-1">Amanek Beppu Yula-re</h4>
+                <div class="bg-white p-5 rounded-2xl text-center card-shadow">
+                    <i class="fa-solid fa-bolt text-yellow-500 text-xl mb-2"></i>
+                    <p class="text-[10px] text-gray-400">日本電壓</p>
+                    <p class="text-sm font-black italic">100V 雙扁插</p>
                 </div>
-                <i class="fa-solid fa-check-circle text-green-500"></i>
-            </div>
-            <div class="bg-white p-4 rounded-2xl shadow-sm border-l-4 border-orange-400 flex justify-between items-center">
-                <div>
-                    <span class="text-[9px] bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full font-bold uppercase">7/12 (1晚) 建議</span>
-                    <h4 class="font-bold text-gray-800 text-sm mt-1">博多車站附近飯店</h4>
+                <div class="bg-white p-5 rounded-2xl text-center card-shadow">
+                    <i class="fa-solid fa-comments-dollar text-green-500 text-xl mb-2"></i>
+                    <p class="text-[10px] text-gray-400">匯率參考</p>
+                    <p class="text-sm font-black italic">¥100 ≈ NT$21</p>
                 </div>
-                <span class="text-[10px] text-orange-600 font-bold">待訂</span>
+                <div class="bg-white p-5 rounded-2xl text-center card-shadow">
+                    <i class="fa-solid fa-clock text-blue-500 text-xl mb-2"></i>
+                    <p class="text-[10px] text-gray-400">時差</p>
+                    <p class="text-sm font-black italic">快台灣 1 小時</p>
+                </div>
             </div>
         </section>
-
-        <div class="space-y-6">
-            <h3 class="font-bold text-gray-800 ml-1 text-sm uppercase tracking-widest">📍 行程流水線</h3>
-            
-            <div class="bg-white rounded-3xl p-5 shadow-sm">
-                <div class="flex items-center space-x-2 mb-4 border-b pb-2">
-                    <span class="bg-[#a52a2a] text-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold">1</span>
-                    <span class="font-bold text-sm text-gray-800">7/8 (三) 抵達與熊本進擊</span>
-                </div>
-                <div class="space-y-4 text-sm relative timeline-line">
-                    <div class="relative pl-10">
-                        <p class="text-gray-400 text-[10px]">10:45</p>
-                        <p class="font-bold">抵達熊本空港 (KMJ)</p>
-                        <p class="text-[11px] text-gray-500 italic">領行李、辦理 5 台車租車手續</p>
-                    </div>
-                    <div class="relative pl-10">
-                        <p class="text-gray-400 text-[10px]">15:00</p>
-                        <p class="font-bold">熊本城 / 城彩苑散策</p>
-                        <p class="text-[11px] text-gray-500 italic">入住飯店後步行或開車前往 (停留 3hr)</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-3xl p-5 shadow-sm">
-                <div class="flex items-center space-x-2 mb-4 border-b pb-2">
-                    <span class="bg-gray-400 text-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold">2</span>
-                    <span class="font-bold text-sm text-gray-800">7/9 (四) 移動至別府</span>
-                </div>
-                <div class="space-y-4 text-sm relative timeline-line">
-                    <div class="relative pl-10">
-                        <p class="text-gray-400 text-[10px]">10:00 (車程 2.5hr)</p>
-                        <p class="font-bold">離開熊本 ➡️ 阿蘇沿線 ➡️ 別府</p>
-                    </div>
-                    <div class="relative pl-10">
-                        <p class="text-gray-400 text-[10px]">16:00</p>
-                        <p class="font-bold text-blue-600 italic">入住 Amanek Beppu</p>
-                        <p class="text-[11px] text-gray-500">頂樓無邊際足湯、欣賞別府灣景</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-3xl p-5 shadow-sm">
-                <div class="flex items-center space-x-2 mb-4 border-b pb-2">
-                    <span class="bg-gray-400 text-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold">3</span>
-                    <span class="font-bold text-sm text-gray-800">7/10 (五) 野生動物園</span>
-                </div>
-                <div class="space-y-4 text-sm relative timeline-line">
-                    <div class="relative pl-10">
-                        <p class="text-gray-400 text-[10px]">09:30 (車程 30min)</p>
-                        <p class="font-bold text-red-700">九州自然野生動物園 (African Safari)</p>
-                        <p class="text-[11px] text-gray-500">5台車自駕進入看獅子 (停留 4hr)</p>
-                    </div>
-                    <div class="relative pl-10">
-                        <p class="text-gray-400 text-[10px]">15:00</p>
-                        <p class="font-bold">別府海地獄 ➡️ 回飯店放鬆</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-3xl p-5 shadow-sm">
-                <div class="flex items-center space-x-2 mb-4 border-b pb-2">
-                    <span class="bg-gray-400 text-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold">4</span>
-                    <span class="font-bold text-sm text-gray-800">7/11 (六) 由布院童話漫步</span>
-                </div>
-                <div class="space-y-4 text-sm relative timeline-line">
-                    <div class="relative pl-10">
-                        <p class="text-gray-400 text-[10px]">11:00 (車程 30min)</p>
-                        <p class="font-bold text-blue-600">由布院 / 金鱗湖散策</p>
-                        <p class="text-[11px] text-gray-500">湯之坪街道、B-Speak 蛋糕 (停留 5hr)</p>
-                    </div>
-                    <div class="relative pl-10">
-                        <p class="text-gray-400 text-[10px]">17:00</p>
-                        <p class="font-bold">返回飯店 ➡️ 市區晚餐</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-3xl p-5 shadow-sm border-l-8 border-[#a52a2a]">
-                <div class="flex items-center space-x-2 mb-4 border-b pb-2">
-                    <span class="bg-[#a52a2a] text-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold">5</span>
-                    <span class="font-bold text-sm text-gray-800">7/12 (日) 返回福岡 & 鋼彈</span>
-                </div>
-                <div class="space-y-4 text-sm relative timeline-line">
-                    <div class="relative pl-10">
-                        <p class="text-gray-400 text-[10px]">10:00 (車程 2hr)</p>
-                        <p class="font-bold">由別府駛往福岡</p>
-                    </div>
-                    <div class="relative pl-10">
-                        <p class="text-gray-400 text-[10px]">13:00</p>
-                        <p class="font-bold text-blue-600 underline">LaLaport 福岡 / 實物大鋼彈</p>
-                        <p class="text-[11px] text-gray-500 italic">20人最後採買與大合照</p>
-                    </div>
-                    <div class="relative pl-10">
-                        <p class="text-gray-400 text-[10px]">18:00</p>
-                        <p class="font-bold">入住博多車站飯店 ➡️ 車站附近自由食</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-3xl p-5 shadow-sm">
-                <div class="flex items-center space-x-2 mb-4 border-b pb-2">
-                    <span class="bg-gray-800 text-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold">6</span>
-                    <span class="font-bold text-sm text-gray-800">7/13 (一) 最後衝刺返台</span>
-                </div>
-                <div class="space-y-4 text-sm relative timeline-line">
-                    <div class="relative pl-10">
-                        <p class="text-gray-400 text-[10px]">11:30 (車程 20min)</p>
-                        <p class="font-bold text-red-600 italic">車隊歸還、前往福岡機場</p>
-                    </div>
-                    <div class="relative pl-10">
-                        <p class="text-gray-400 text-[10px]">14:15</p>
-                        <p class="font-bold italic">FUK ➡️ TPE 班機返台</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-gray-800 text-white p-5 rounded-3xl space-y-2">
-            <h4 class="text-xs font-bold text-yellow-400 uppercase tracking-widest flex items-center"><i class="fa-solid fa-circle-info mr-2"></i> 車隊長注意事項</h4>
-            <ul class="text-[11px] opacity-80 space-y-1 list-disc pl-4">
-                <li>每台車請務必確認具備 ETC 卡</li>
-                <li>車隊移動建議保持 LINE 語音連線</li>
-                <li>餐廳 20 位難併桌，建議以「家」為單位分區用餐</li>
-            </ul>
-        </div>
 
     </main>
 
-    <nav class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-gray-100 px-8 py-4 flex justify-around text-gray-400 z-50 shadow-2xl">
-        <div class="flex flex-col items-center text-[#a52a2a]"><i class="fa-solid fa-calendar-alt text-lg"></i><span class="text-[9px] mt-1 font-bold">行程</span></div>
-        <div class="flex flex-col items-center"><i class="fa-solid fa-car text-lg"></i><span class="text-[9px] mt-1 font-bold">車隊</span></div>
-        <div class="flex flex-col items-center"><i class="fa-solid fa-hotel text-lg"></i><span class="text-[9px] mt-1 font-bold">住宿</span></div>
-        <div class="flex flex-col items-center"><i class="fa-solid fa-circle-info text-lg"></i><span class="text-[9px] mt-1 font-bold">資訊</span></div>
-    </nav>
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 flex justify-around p-3 z-50 max-w-2xl mx-auto shadow-2xl">
+        <div class="flex flex-col items-center text-[#a52a2a]"><i class="fa-solid fa-house"></i><span class="text-[9px] mt-1 font-bold">行程</span></div>
+        <div class="flex flex-col items-center text-gray-300"><i class="fa-solid fa-car"></i><span class="text-[9px] mt-1">車隊</span></div>
+        <div class="flex flex-col items-center text-gray-300"><i class="fa-solid fa-hotel"></i><span class="text-[9px] mt-1">住宿</span></div>
+        <div class="flex flex-col items-center text-gray-300"><i class="fa-solid fa-info-circle"></i><span class="text-[9px] mt-1">資訊</span></div>
+    </div>
 
 </body>
 </html>
